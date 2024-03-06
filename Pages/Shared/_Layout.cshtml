@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ManagementCoffee</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ManagementCoffee.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/header.css"/>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/home.css" rel="stylesheet">
+    
+</head>
+
+<body>
+    <header style="height=350px;">
+
+     @*   <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <div class="logo">
+                    <img src="~/image/coffee-cup-logo-coffee-shop-icon-design-free-vector.jpg">
+
+                </div>
+
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap" /></svg>
+                    <span class="fs-4">Coffee Shop</span>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                </ul>
+            </header>
+        </div>*@
+        <div class="topbar hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7 col-sm-5 hidden-xs">
+                        <div class="topbar_left">
+                            <ul>
+                                <li>
+                                    <span class="welcome_text">Chào mừng bạn đến với Coffee House !</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-7 d-list col-xs-12 a-right topbar_right hidden-xs">
+                        <div class="list-inline f-right">
+                            <ul class="ul-account" ">
+
+                                <li class="hidden-xs">
+                                    <a style="margin-left:300px;" href=" /account" title="Tài khoản" class="account_a a_db">
+                                        Tài khoản
+                                    </a>
+                                </li>
+                                <li class="line_ hidden-xs">/</li>
+                                <li class="hidden-xs">
+                                    <a href="/account/logout" title="Thoát" class="account_a a_db">
+                                        <span>Thoát</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container_header">
+            <ul class="item_big nav-left hidden-xs hidden-sm">
+                <li class="nav-item active ">
+                    <a class="a-img" href="/">
+                        <span>Trang chủ</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="a-img" href="/gioi-thieu">
+                        <span>Giới thiệu</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="a-img" href="/collections/all">
+                        <span>Sản phẩm</span><i class="fa fa-caret-down"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="logo_center">
+                <li class="logo">
+
+                    <a href="/" class="logo-wrapper ">
+                        <img style="width:150px ;height:140px" src="//bizweb.dktcdn.net/100/346/521/themes/894784/assets/logo.png?1676262120822" alt="logo Coffee House">
+                    </a>
+
+                </li>
+            </ul>
+            <ul class="item_big nav-right hidden-xs hidden-sm">
+
+
+
+                <li class="nav-item ">
+                    <a class="a-img" href="/tin-tuc">
+                        <span>Dịch vụ</span>
+                    </a>
+                </li>
+
+
+
+
+                <li class="nav-item ">
+                    <a class="a-img" href="/tin-tuc">
+                        <span>Tin tức</span>
+                    </a>
+                </li>
+
+
+
+
+                <li class="nav-item ">
+                    <a class="a-img" href="/lien-he">
+                        <span>Liên hệ</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+   @* <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - ManagementCoffee - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

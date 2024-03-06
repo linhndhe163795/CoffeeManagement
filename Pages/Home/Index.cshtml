@@ -1,0 +1,197 @@
+﻿@page
+@model ManagementCoffee.Pages.Home.IndexModel
+@{
+}
+<link href="~/css/header.css"/>
+
+<div class="container">
+    <section class="section_menu_today">
+        <div class="container">
+            <div class="row">
+                <div class="heading">
+                    <h2 class="large_title">Menu hôm nay</h2>
+                    <span class="mini_title">Xem menu hôm nay</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab_link_module">
+            <div class="tabs-container tab_border">
+                <span class="hidden-md hidden-lg button_show_tab">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </span>
+                <span class="hidden-md hidden-lg title_check_tabs"></span>
+            </div>
+            <div class="tabs-content container">
+                <div id="content-tabb1" class="content-tab content-tab-proindex">
+
+                    <div class="clearfix wrap_item_list row">
+                        @foreach (var item in @Model.products)
+                        {
+
+                            <div class="clear_ col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="wrp_item_small" style="display:block">
+
+                                    <div class="product-box product_grid_2">
+                                        <div class="product_mini_2 clearfix  ">
+                                            <div class="img_product">
+                                                <a class="product-img" href="/ca-phe-trung" title="@item.name">
+                                                    <img class="lazyload loaded" src="~/image/@item.image" alt="Cà phê Trứng" data-was-processed="true">
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="infor_prd">
+                                                    <h3 class="name_product">
+                                                        <a href="/ca-phe-trung" title="@item.name" class="product-name">
+                                                            <span class="name_product">@item.name</span>
+                                                        </a>
+                                                    </h3>
+                                                </div>
+                                                <div class="price_base ">
+
+                                                    <div class="price-box clearfix">
+                                                        <div class="special-price">
+                                                            <span class="price product-price">@item.price</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    
+                    </div>
+                </div>
+            </div>
+            @{
+                //var preDisable = Model.products.HasPreviousPage ? "disable" : "";
+                var preDisable = Model.products.PageIndex == 1 ? "disabled" : "";
+                var nextDisable = !Model.products.HasNextPage ? "disabled" : "";
+                <a asp-page="./Index"
+               asp-route-pageIndex="@(Model.products.PageIndex + 1)"
+               class="btn btn-primary @nextDisable">
+                    Next
+                </a>
+                <a asp-page="./Index"
+               asp-route-pageIndex="@(Model.products.PageIndex -1)"
+               class="btn btn-primary @preDisable">
+                    Previous
+                </a>
+                
+            }
+        </div>
+    </section>
+    <div class="slide">
+        <center>
+            <img class="mySlides" src="~/image/slide2jpg.jpg">
+            <img class="mySlides" src="~/image/slide3.jpg">
+        </center>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+            <!-- Phần chứa văn bản -->
+            <div class="module_left a-center">
+                <div class="heading">
+                    <h2 class="large_title">Chúng tôi là</h2>
+                    <span class="mini_title">Coffee house</span>
+                </div>
+                <div class="day_time">
+                    Thứ hai đến Thứ bảy <b>8:30am - 11:00pm</b> <span class="hidden-xs">|</span>
+                    Hotline:
+                    <a href="tel:19006750">19006750</a>
+                </div>
+                <span class="line">------------------------------------------</span>
+                <span class="title">Chúng tôi đi khắp thế giới để tìm kiếm cà phê tuyệt vời. Trong quá trình đó, chúng tôi phát hiện ra những hạt đậu đặc biệt và hiếm đến nỗi chúng tôi có thể chờ đợi để mang chúng về.</span>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+            <!-- Phần chứa hình ảnh -->
+            <div class="module_right a-center" style="">
+                <img class="lazyload loaded"  src="//bizweb.dktcdn.net/100/346/521/themes/894784/assets/bg_about.png?1676262120822" data-src="//bizweb.dktcdn.net/100/346/521/themes/894784/assets/bg_about.png?1676262120822" alt="Coffee House" data-was-processed="true">
+            </div>
+        </div>
+    </div>
+    <div class="imageforcoffee">
+        <div class="heading"><h3>HÌNH ẢNH QUÁN CAFE</h3></div>
+        <div class="body_right_left">
+            <div class="row">
+                @*left*@
+                <div class="col-sm-6">
+                    <img src="~/image/bacxiu.jpg" />
+                </div>
+                @*end lefft*@
+                @*right*@
+                <div class="col-sm-6 right">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src="~/image/bacxiu.jpg" alt="Image">
+                            <img src="~/image/bacxiu.jpg" alt="Image">
+                        </div>
+                        <div class="col-sm-6">
+                            <img src="~/image/bacxiu.jpg" alt="Image">
+                            <img src="~/image/bacxiu.jpg" alt="Image">
+                        </div>
+
+                    </div>
+                </div>
+                @*end right*@
+            </div>
+        </div>
+    </div>
+    <div class="time_open">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="module_left a-center">
+                    <div class="heading">
+                        <h2 style="padding-bottom:20px;" class="large_title">Giờ mở cửa</h2>
+                        <div>Thứ 2 - Thứ 6 hàng tuần</div>
+                        <div>
+                            <div id="timeopen">7am - 11am</div>
+                        </div>
+                        <div>
+                            <div id="timeopen">11am - 10pm</div>
+                        </div>
+
+                        <div class="last-week" style="padding-top:30px">Thứ 7 - Thứ CN hàng tuần</div>
+                        <div>
+                            <div id="timeopen">8am - 1 am</div>
+                        </div>
+                        <div>
+                            <div id="timeopen">11am - 9pm</div>
+                        </div>
+                        <span class="line">------------------------------------------</span>
+                        <div>Số điện thoại:</div>
+                        <h2 style="padding-bottom:20px;" class="large_title">012356789</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <img class="open_time_img" src="~/image/cacaosuanong.jpg" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) { slideIndex = 1 }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>

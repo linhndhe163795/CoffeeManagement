@@ -1,0 +1,100 @@
+﻿@page
+@model ManagementCoffee.Pages.User.MenuModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/pricing/">
+
+    <style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }  
+   /* .col-5{
+          width:250px;
+          padding-left:20px;
+          padding-top:20px;
+
+    }*/
+
+    .image_product {
+        width:200px;
+        height:180px;
+        padding: 20px 20px 20px 20px;
+
+    }
+
+    .shopping_cart {
+        text-align:right;
+        font-size:25px;
+    }
+
+    </style>
+    <div>
+    <h1>Home Page</h1
+    <div class="shopping_cart">
+        <button id="cartForm" style="display: inline-flex;
+                float: right;
+                text-decoration: none;
+                padding: 10px;">
+                Shopping Cart <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
+                        </svg>
+            <span onclick="document.location='order'" style="cursor: pointer; color: red">Cart (@Model.TotalItemInCart)</span>
+        </button>
+    <i class="bi bi-cart-check-fill"></i>
+    </div>
+
+</div>
+
+
+
+
+<div class="row justify-content-end text-center offset-3" style="width:100%">
+    <div class="col-3 row-cols-1 ">
+        <h1>ABCD</h1>
+    </div>
+    @foreach (var o in Model.products)
+    {
+            <div class="col-3 row-cols-1 ">
+                <div class="card mb-3 rounded-3 shadow-sm" >
+                <div class="card-header py-3">
+                    <h5 class="my-0 fw-normal">@o.name</h5>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title">@o.price<small class="text-muted fw-light">/per</small></h4>
+                    <ul class="list-unstyled mt-3 mb-4">
+
+                    </ul>
+                    <img class="image_product" src="~/image/@o.image"/>
+                    <form method="post">
+                        <input type="hidden" name="ProductCode" value="@o.productCode" />
+                        <button type="submit" id="btn_buy" class="w-100 btn btn-lg btn-outline-primary btn_buy">Buy</button>
+                        </form>
+
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+</div>
+@{
+    var preDisable = Model.products.PageIndex == 1 ? "disabled" : "";
+    var nextDisable = !Model.products.HasNextPage ? "disabled" : "";
+    <a style="display:inline-flex; float:right;" asp-page="./Index"
+   asp-route-pageIndex="@(Model.products.PageIndex + 1)"
+   class="btn btn-primary @nextDisable">
+        Next
+    </a>
+    <a style="display:inline-flex; float:right" asp-page="./Index"
+   asp-route-pageIndex="@(Model.products.PageIndex -1)"
+   class="btn btn-primary @preDisable">
+        Previous
+    </a>
+}
+

@@ -1,0 +1,156 @@
+﻿.logo img{
+    height:70px;
+    width:70px;
+    border-radius:50px;
+}
+.nav{
+    padding: 20px 0px 0px 0px;
+}
+
+.header-nav {
+    width: 100%;
+    height: 80px;
+    background: #252525;
+    padding: 0;
+    border-radius: 50px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar {
+    height: 75px;
+    line-height: 75px;
+    float: left;
+    width: 100%;
+}
+
+.topbar .topbar_left {
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+}
+
+    .topbar .topbar_left ul {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .topbar .topbar_left li:first-child {
+        margin-right: 8px;
+    }
+
+    .topbar .topbar_left li span {
+        color: #707070;
+    }
+
+.topbar .topbar_right {
+    font-size: 14px;
+}
+
+.d-list > div:first-child {
+    margin: 0;
+}
+
+.d-list > div {
+    position: relative;
+}
+
+ul {
+    list-style: none outside;
+}
+
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+.topbar .topbar_right li {
+    font-size: 14px;
+}
+
+.list-inline li {
+    float: left;
+    margin: 0;
+}
+
+.topbar .topbar_right li a.a_db {
+    color: #707070;
+    font-size: 14px;
+    margin: 0px 0px 0px 5px;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+}
+
+.container_header {
+    background-color: #252525;
+    height: 90px;
+    width: 90%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto; /* Để căn giữa theo chiều ngang */
+    border-radius: 60px;
+}
+
+    .container_header > ul.item_big.nav-left {
+        text-align: right;
+    }
+
+    .container_header > ul.item_big > li.nav-item {
+        font-weight: 400;
+        display: inline-block;
+        float: none;
+        position: relative;
+        margin-right: 0px;
+        margin-left: 1px;
+    }
+
+    .container_header > ul.item_big > li.active > a {
+        color: #e7b45a;
+    }
+
+    .container_header > ul.item_big > li.nav-item > a {
+        display: block;
+        text-align: left;
+        padding: 0px 10px;
+        font-size: 16px;
+        font-weight: 400;
+        height: 80px;
+        line-height: 80px;
+        position: relative;
+        text-decoration: none;
+        text-transform: none;
+    }
+
+.logo_center {
+    width: 191px;
+    display: inline-block;
+    line-height: 191px;
+    background: #252525;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0;
+    margin: 0 15px;
+}
+
+.logo {
+    display: inline-block;
+    margin-top: 0px;
+}
+
+a, .text-link {
+    color: #252525;
+    text-decoration: none;
+    background: transparent;
+}
+
+.logo .logo-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+}
+

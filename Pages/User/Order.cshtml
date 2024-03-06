@@ -1,0 +1,53 @@
+﻿@page
+@model ManagementCoffee.Pages.User.OrderModel
+@{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ProductName</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.Cart.Keys)
+            {
+                <tr>
+                    <td>@item.name</td>
+                    <td>
+                        <form asp-page-handler="ChangeQuantity" method="post">
+                            <input type="hidden" name="ProductCode" value="@item.productCode"/>
+                            <input type="number" min="0" name="Quantity" value="@Model.Cart[item]" onchange="this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>@item.price</td>
+                    <td>@(item.price * Model.Cart[item])</td>
+                    <td>
+                        <form id="formDelete" asp-page-handler="Remove" method="post">
+                            <input type="hidden" name="ProductCode" value="@item.productCode"/>
+                            <button onclick="document.getElementById('formDelete').submit()" class="btn btn-sm btn-danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                 Model.TotalPrice += (item.price * Model.Cart[item]); 
+            }
+            <tr>
+                <td><strong>Total:</strong></td>
+                <td></td>
+                <td></td>
+                <td>@Model.TotalPrice</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <form id="formPaymentOrder" method="post" asp-page-handler="PaymentOrder">
+        <input type="hidden" name="Amount" value="@Model.TotalPrice" />
+        <input type="hidden" name="date" value="@DateTime.Now"/>
+        <input type="hidden" name="create_at" value="@DateTime.Now"/>
+        <input type="hidden" name="update_at" value="@DateTime.Now"/>
+        <input type="hidden" name="create_by" value="1"/>
+    <button onclick="document.getElementById('formPaymentOrder').submit()" style="display:inline-block; float: right" class="btn btn-primary">Payment</button>
+    </form>
+}
